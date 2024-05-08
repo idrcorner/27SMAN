@@ -27,8 +27,8 @@ class InformasiController extends Controller
          'tgl_publis'=>'required',
          'status'=>'required',
       ]);
-     
-      $cover = storeFile($request->file('cover'),'informasi');
+      
+      $cover = storeImgSize($request->file('cover'),'informasi',800,500);
       $slug= createSlug($request->judul,Informasi::class);
 
       $store =Informasi::create([
@@ -88,7 +88,7 @@ class InformasiController extends Controller
       $data['slug']=$slug;
 
       if($request->cover){
-         $cover = storeFile($request->file('cover'),'informasi');
+         $cover = storeImgSize($request->file('cover'),'informasi',800,500);
          if($cover){
             deleteFile($informasi->cover);
             $data['cover']=$cover;

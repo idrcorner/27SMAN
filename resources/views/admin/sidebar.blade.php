@@ -16,20 +16,20 @@
                         <p>Informasi Sekolah</p>                       
                     </a>            
                 </li>
-                <li class="nav-item  ">
-                    <a href="#" class="collapsed" aria-expanded="false">
+                <li class="nav-item  {{$menu=='profil'? ' active ':''}} ">
+                    <a href="{{route('profil.index')}}" class="collapsed" aria-expanded="false">
                         <i class="icon-directions"></i>
                         <p>Tentang Kami</p>                       
                     </a>            
                 </li>
-                <li class="nav-item  ">
-                    <a href="#" class="collapsed" aria-expanded="false">
+                <li class="nav-item {{$menu=='guru'? ' active ':''}} ">
+                    <a href="{{route('guru.index')}}" class="collapsed" aria-expanded="false">
                         <i class="icon-people"></i>
                         <p>Guru dan TU</p>                       
                     </a>            
                 </li>
-                <li class="nav-item  ">
-                    <a href="#" class="collapsed" aria-expanded="false">
+                <li class="nav-item   {{$menu=='prestasi'? ' active ':''}} ">
+                    <a href="{{route('prestasi.index')}}" class="collapsed" aria-expanded="false">
                         <i class="icon-trophy"></i>
                         <p>Prestasi</p>                       
                     </a>            

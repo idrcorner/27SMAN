@@ -41,7 +41,7 @@
                                         <label for="summernote">Detail Informasi</label>  @error('konten') <span class="text-danger">Detail Informasi Harus diisi </span> @enderror
                                         <textarea id="summernote" name="konten" required>{{old('konten')}}</textarea>            
                                     </div>
-                                    <div class="form-group"> @error('judul') <span class="text-danger">{{$message}} </span> @enderror
+                                    <div class="form-group"> @error('tgl_publis') <span class="text-danger">{{$message}} </span> @enderror
                                         <label for="tgl_publis">Tanggal Publis</label> @error('tgl_publis') <span class="text-danger">Tanggal Publis harus diisi </span> @enderror
                                         <input type="date" name="tgl_publis"  value="{{old('tgl_publis')}}"  class="form-control" id="tgl_publis" placeholder="Tanggal Publis" style="width: 250px">                      
                                     </div>
@@ -90,7 +90,7 @@
 <script src="{{url('assets/js/plugin/summernote/summernote-bs4.min.js')}}"></script>
 <script>
     $('#summernote').summernote({
-        placeholder: 'Atlantis',
+        placeholder: 'Konten',
         fontNames: ['Arial', 'Arial Black', 'Comic Sans MS', 'Courier New'],
         tabsize: 2,
         height: 300

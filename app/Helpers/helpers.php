@@ -2,6 +2,7 @@
 use Illuminate\Support\Str;
 use App\Models\User;
 use Illuminate\Support\Facades\Storage;
+use Intervention\Image\Laravel\Facades\Image;
 
 if (!function_exists('myHelperFunction')) {
     function appName(){return 'SMAN 27 BATAM';}
@@ -32,6 +33,17 @@ if (!function_exists('myHelperFunction')) {
         $fileName = uniqid() . '_' . $file->getClientOriginalName();
         return $file->storeAs('public/'.$folder, $fileName);
     }
+
+    function storeImgSize($fileRequest,$folder,$width,$height){
+        $file = $fileRequest;
+        $fileName = uniqid() . '_' . $file->getClientOriginalName();
+        $image = Image::read($file);
+ 
+        $image->cover($width, $height);
+        $image->save(storage_path('app/public/'.$folder.'/'.$fileName));
+           
+        return 'public/'.$folder.'/'.$fileName;
+     }
 
     function createSlug($judul,$model){
         $judulSlug=Str::slug($judul);

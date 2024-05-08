@@ -91,7 +91,7 @@
 <script src="{{url('assets/js/plugin/summernote/summernote-bs4.min.js')}}"></script>
 <script>
     $('#summernote').summernote({
-        placeholder:'Konten',
+        placeholder: 'Konten',
         fontNames: ['Arial', 'Arial Black', 'Comic Sans MS', 'Courier New'],
         tabsize: 2,
         height: 300
