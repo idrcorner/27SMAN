@@ -25,9 +25,10 @@
                     <div class="card full-height">
                         <div class="card-body">
                             <div class="row">
+                                <div class="col-12">
                                 <form action="{{ route('profil.store') }}" method="POST" enctype="multipart/form-data">
                                     @csrf
-                                    <div class="col-12">
+                                  
                                         <div class="form-group">
                                             <label for="judul">Judul </label> @error('judul') <span class="text-danger">{{$message}} </span> @enderror
                                             <input type="text" name="judul" class="form-control" value="{{old('judul')}}" id="judul" placeholder="Judul Tentang Kami" required>                      
@@ -51,8 +52,9 @@
                                             <hr>
                                     <input type="submit" value="SIMPAN" class="btn btn-primary">
                                     <a href="{{route('profil.index')}}" class="btn btn-link" >Batal</a>
-                                    </div>
+                                   
                                 </form>
+                            </div>
                         </div>
                     </div>
                 </div>

@@ -25,8 +25,15 @@
             <div class="col-md-12">
                 <div class="card full-height">
                     <div class="card-body">
-                        <div class="card-title">Quotes</div>
-                        <div class="card-category">Daily information about statistics in system</div>
+                        @if (isset($quote))
+                        <div class="card-title">Quotes Of The Day</div>
+                        <div class="card-category">
+                            "{{$quote->quote}}"
+                            
+                            -<strong>{{$quote->oleh}}</strong>-
+                        </div>
+                        @endif
+                       
                       
                     </div>
                 </div>

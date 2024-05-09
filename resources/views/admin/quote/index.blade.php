@@ -1,7 +1,7 @@
 @extends('admin.layout')
 
 @section('title')
-    Prestasi
+    Quote
 @endsection
 
 @section('content')
@@ -10,11 +10,11 @@
             <div class="page-inner py-5">
                 <div class="d-flex align-items-left align-items-md-center flex-column flex-md-row">
                     <div>
-                        <h2 class="text-white pb-2 fw-bold">Prestasi</h2>
+                        <h2 class="text-white pb-2 fw-bold">Quote</h2>
                         
                     </div>
                     <div class="ml-md-auto py-2 py-md-0">                  
-                        <a href="{{route('prestasi.create')}}" class="btn btn-secondary btn-round">Tambah Prestasi</a>
+                        <a href="{{route('quote.create')}}" class="btn btn-secondary btn-round">Tambah Quote</a>
                     </div>
                 </div>
             </div>
@@ -27,30 +27,21 @@
                            <table class="table table-bordered table-hovered" id='iniTabel'>
                                <thead>
                                 <tr>
-                                    <th>No</th>
-                                    <th width="100px">Cover</th>
-                                    <th>Judul</th> 
-                                    <th>Admin</th>
-                                    <th>View</th>
-                                    <th>Status</th>
+                                    <th>No</th> 
+                                    <th>Quote</th> 
+                                    <th>oleh</th>
                                     <th>Action</th>
                                 </tr>
                                </thead>
                                <tbody>
-                                @foreach ($prestasis as $i=>$inf)
+                                @foreach ($quotes as $i=>$inf)
                                 <tr>
-                                    <td>{{$i+1}}</td>
-                                    <td>
-                                        <img src="{{url(Storage::url($inf->cover))}}" alt="cover" width="100px" style="border-radius: 5px" >
-                                    </td>
-                                    <td>{{$inf->judul}}</td> 
-                                    <td>{{getUsername($inf->user_id)}}</td>
-                                    <td class="text-center">{{$inf->view}}</td>
-                                    <td class="{{$inf->status==0?'text-warning':'text-primary'}}">{{$inf->status==0?'Arsip':'Publis'}}</td>
-                                    <td>
-                                        <a href="{{route('prestasi.show',$inf->id)}}"><i class=" fas fa-search text-primary mr-2" title="Lihat Detail"></i></a>
-                                       <a href="{{route('prestasi.edit',$inf->id)}}"> <i class=" fas fa-pen text-warning mr-2" title="Ubah"></i></a>
-                                        <i  onclick="alertdelete('{{$inf->judul}}','{{$inf->id}}')"
+                                    <td>{{$i+1}}</td> 
+                                    <td>{{$inf->quote}}</td> 
+                                    <td>{{$inf->oleh}}</td> 
+                                        <td>
+                                    <a href="{{route('quote.edit',$inf->id)}}"> <i class=" fas fa-pen text-warning mr-2" title="Ubah"></i></a>
+                                        <i  onclick="alertdelete('{{$inf->quote}}','{{$inf->id}}')"
                                             role="button" class="fas fa-trash-alt text-danger cursor-pointer" title="Hapus"></i>
                                     </td>
                                 </tr>
@@ -66,10 +57,10 @@
         </div>
     </div>
 
-    <form id="deleteform" action="{{route('prestasi.delete')}}" method="post">
+    <form id="deleteform" action="{{route('quote.delete')}}" method="post">
         @csrf
         @method('DELETE')
-        <input id="idPrestasi" type="hidden" name="id" value="">
+        <input id="idQuote" type="hidden" name="id" value="">
      
     </form>
 @endsection
@@ -80,7 +71,7 @@
 <script>
     $(document).ready(function() {
 
-        // $('#sideB').addClass('sidebar_minimize');
+       
 
         var table=  $('#iniTabel').DataTable({
             ordering: false,
@@ -98,7 +89,7 @@
         function alertdelete(judul, id) {
         swal({
             title: 'Anda yakin?'
-            , text: "Menghapus Prestasi : " + judul
+            , text: "Menghapus Quote : " + judul
             , icon: 'warning'
             , buttons: {
                 confirm: {
@@ -112,7 +103,7 @@
             }
         }).then((result) => {
             if (result) {
-                document.getElementById("idPrestasi").value=id
+                document.getElementById("idQuote").value=id
                 document.getElementById("deleteform").submit();  
             } 
         });

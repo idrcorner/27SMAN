@@ -5,9 +5,12 @@ use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\GuruController;
 use App\Http\Controllers\PrestasiController;
 use App\Http\Controllers\MainController;
+use App\Http\Controllers\KontakController;
 use App\Http\Controllers\AlbumController;
+use App\Http\Controllers\QuoteController;
 use App\Http\Controllers\InformasiController ;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Auth\RegisteredUserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,11 +25,16 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('home');
+
+ 
 
 Route::get('/dashboard',  [MainController::class, 'dashboard'])->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::middleware('auth')->group(function () {
+Route::middleware(['auth','role:admin'])->group(function () {
+    Route::get('register', [RegisteredUserController::class, 'create'])
+    ->name('register');
+     Route::post('register', [RegisteredUserController::class, 'store']);
 
     //Informasi
     Route::get('/informasi-sekolah', [InformasiController::class, 'index'])->name('informasi.index');
@@ -70,6 +78,18 @@ Route::middleware('auth')->group(function () {
     Route::patch('/album-update/{id}', [AlbumController::class, 'update'])->name('album.update');
     Route::post('/upload-foto', [AlbumController::class, 'uploadfoto'])->name('uploadfoto');
     Route::delete('/delete-foto', [AlbumController::class, 'deletefoto'])->name('deletefoto');
+
+    //Quote
+    Route::get('/quote', [QuoteController::class, 'index'])->name('quote.index');
+    Route::get('/quote-add', [QuoteController::class, 'create'])->name('quote.create');
+    Route::post('/quote-store', [QuoteController::class, 'store'])->name('quote.store');
+    Route::delete('/quote', [QuoteController::class, 'delete'])->name('quote.delete');
+    Route::get('/quote-prev/{id}', [QuoteController::class, 'show'])->name('quote.show');
+    Route::get('/quote-edit/{id}', [QuoteController::class, 'edit'])->name('quote.edit');
+    Route::patch('/quote-update/{id}', [QuoteController::class, 'update'])->name('quote.update');
+    //Kontak
+    Route::get('/kontak', [KontakController::class, 'index'])->name('kontak.index');
+    Route::patch('/kontak-update/{id}', [KontakController::class, 'update'])->name('kontak.update');
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

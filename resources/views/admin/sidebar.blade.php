@@ -40,7 +40,19 @@
                         <p>Album</p>                       
                     </a>            
                 </li>
-            
+                <li class="nav-item  {{$menu=='quote'? ' active ':''}} ">
+                    <a href="{{route('quote.index')}}" class="collapsed" aria-expanded="false">
+                        <i class="icon-diamond"></i>
+                        <p>Quote</p>                       
+                    </a>            
+                </li>
+            <hr>
+            <li class="nav-item  {{$menu=='kontak'? ' active ':''}} ">
+                <a href="{{route('kontak.index')}}" class="collapsed" aria-expanded="false">
+                    <i class="icon-direction"></i>
+                    <p>Kontak</p>                       
+                </a>            
+            </li>
             </ul>
         </div>
     </div>

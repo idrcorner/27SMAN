@@ -81,7 +81,7 @@
 <script>
     $(document).ready(function() {
 
-        $('#sideB').addClass('sidebar_minimize');
+        // $('#sideB').addClass('sidebar_minimize');
 
         var table=  $('#iniTabel').DataTable({
             ordering: false,

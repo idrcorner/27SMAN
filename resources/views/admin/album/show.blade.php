@@ -61,7 +61,7 @@
                                 <img src="{{url(Storage::url($item->foto))}}" onclick="prevImg('{{url(Storage::url($item->foto))}}')" data-toggle="modal" data-target="#imageModal" width="100%">
                             </div>
                         @empty
-                            <em>Tidak ada foto pada album ini.</em>
+                            <em>Tidak ada foto pada album ini. ({{$album->judul}}).</em>
                         @endforelse
                     </div>
                      <br>

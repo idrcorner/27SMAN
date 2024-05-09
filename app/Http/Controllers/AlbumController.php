@@ -22,7 +22,7 @@ class AlbumController extends Controller
      public function store(Request $request){
         $request->validate([
            'judul'=>'required',
-           'deskripsi'=>'required', 
+           
            'tgl'=>'required',
         ]);
        
@@ -43,7 +43,7 @@ class AlbumController extends Controller
   
         session()->flash('success','Album berhasil di tambah.');
   
-        return redirect(route('album.index'));
+        return redirect(route('album.show',$store->id));
   
      }
   

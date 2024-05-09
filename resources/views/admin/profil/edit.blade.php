@@ -1,7 +1,7 @@
 @extends('admin.layout')
 
 @section('title')
-   Ubah Informasi
+   Ubah Tentang Kami
 @endsection
 
 @section('content')
@@ -10,7 +10,7 @@
             <div class="page-inner py-5">
                 <div class="d-flex align-items-left align-items-md-center flex-column flex-md-row">
                     <div>
-                        <h2 class="text-white pb-2 fw-bold">Ubah Informasi Sekolah</h2>
+                        <h2 class="text-white pb-2 fw-bold">Ubah Tentang Kami</h2>
                         
                     </div>
                     <div class="ml-md-auto py-2 py-md-0">                  
@@ -25,58 +25,37 @@
                     <div class="card full-height">
                         <div class="card-body">
                             <div class="row">
-                                <form action="{{ route('informasi.update',$informasi->id) }}" method="POST" enctype="multipart/form-data">
+                                <div class="col-12">
+                                <form action="{{ route('profil.update',$profil->id) }}" method="POST" enctype="multipart/form-data">
                                     @method('PATCH')
                                     @csrf
-                                <div class="col-12">
+                                      <div class="col-12">
                                     <div class="form-group">
-                                        <label for="judul">Judul Informasi</label> @error('judul') <span class="text-danger">{{$message}} </span> @enderror
-                                        <input type="text" name="judul" class="form-control" value="{{$informasi->judul}}" id="judul" placeholder="Judul Informasi" required>                      
-                                    </div>
-                               
-                                    <div class="form-group">
-                                            <label for="subjudul">Sub Judul / Highlight</label>
-                                            <input type="text" name="subjudul" class="form-control" value="{{$informasi->subjudul}}"  id="subjudul" placeholder="Sub Judul / Highlight">                      
+                                        <label for="judul">Judul </label> @error('judul') <span class="text-danger">{{$message}} </span> @enderror
+                                        <input type="text" name="judul" class="form-control" value="{{$profil->judul}}" id="judul" placeholder="Judul Tentang Kami" required>                      
                                     </div>
                                     <div class="form-group">
-                                        <label for="summernote">Detail Informasi</label>  @error('konten') <span class="text-danger">Detail Informasi Harus diisi </span> @enderror
-                                        <textarea id="summernote" name="konten" required>{{$informasi->konten}}</textarea>            
-                                    </div>
-                                    <div class="form-group"> @error('judul') <span class="text-danger">{{$message}} </span> @enderror
-                                        <label for="tgl_publis">Tanggal Publis</label> @error('tgl_publis') <span class="text-danger">Tanggal Publis harus diisi </span> @enderror
-                                        <input type="date" name="tgl_publis"  value="{{$informasi->tgl_publis}}"  class="form-control" id="tgl_publis" placeholder="Tanggal Publis" style="width: 250px">                      
-                                    </div>
-                                    
-                                        <div class="input-file input-file-image">
-                                           <div class="form-group">
-                                            <label for="cover">Cover</label> @error('cover') <span class="text-danger">{{$message}}</span> @enderror
-                                            <img class="img-upload-preview" width="250" src="{{url(Storage::url($informasi->cover))}}" alt="preview">
-                                            <input type="file" class="form-control form-control-file" id="cover" name="cover" accept="image/*"   >
-                                            <label for="cover" class="  label-input-file btn btn-black btn-round">
-                                                <span class="btn-label">
-                                                    <i class="fa fa-file-image"></i>
-                                                </span>
-                                                Pilih Cover
-                                            </label>
-                                           </div>
-                                        </div>
-                                    
+                                        <label for="summernote">Detail  </label>  @error('konten') <span class="text-danger">Detail Tentang Kami Harus diisi </span> @enderror
+                                        <textarea id="summernote" name="konten" required>{{$profil->konten}}</textarea>            
+                                    </div> 
+                        
                                         <div class="form-check">
                                             <label>Status</label><br/>
                                             <label class="form-radio-label">
-                                                <input class="form-radio-input" type="radio" name="status" value="1" {{$informasi->status==1? ' checked':''}}>
+                                                <input class="form-radio-input" type="radio" name="status" value="1"   {{$profil->status==1? ' checked':''}}>
                                                 <span class="form-radio-sign">Publis</span>
                                             </label>
                                             <label class="form-radio-label ml-3">
-                                                <input class="form-radio-input" type="radio" name="status" value="0"  {{$informasi->status==0? ' checked':''}}>
+                                                <input class="form-radio-input" type="radio" name="status" value="0" {{$profil->status==0? ' checked':''}}>
                                                 <span class="form-radio-sign">Arsip</span>
                                             </label>
                                         </div>
                                         <hr>
                                    <input type="submit" value="UBAH" class="btn btn-primary">
-                                   <a href="{{route('informasi.index')}}" class="btn btn-link" >Batal</a>
-                                </div>
+                                   <a href="{{route('profil.index')}}" class="btn btn-link" >Batal</a>
+                           
                                 </form>
+                            </div>
                         </div>
                     </div>
                 </div>
