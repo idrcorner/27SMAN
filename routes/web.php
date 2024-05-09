@@ -5,6 +5,7 @@ use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\GuruController;
 use App\Http\Controllers\PrestasiController;
 use App\Http\Controllers\MainController;
+use App\Http\Controllers\AlbumController;
 use App\Http\Controllers\InformasiController ;
 use Illuminate\Support\Facades\Route;
 
@@ -59,6 +60,16 @@ Route::middleware('auth')->group(function () {
     Route::get('/guru-prev/{id}', [GuruController::class, 'show'])->name('guru.show');
     Route::get('/guru-edit/{id}', [GuruController::class, 'edit'])->name('guru.edit');
     Route::patch('/guru-update/{id}', [GuruController::class, 'update'])->name('guru.update');
+    //Album
+    Route::get('/album', [AlbumController::class, 'index'])->name('album.index');
+    Route::get('/album-add', [AlbumController::class, 'create'])->name('album.create');
+    Route::post('/album-store', [AlbumController::class, 'store'])->name('album.store');
+    Route::delete('/album', [AlbumController::class, 'delete'])->name('album.delete');
+    Route::get('/album-prev/{id}', [AlbumController::class, 'show'])->name('album.show');
+    Route::get('/album-edit/{id}', [AlbumController::class, 'edit'])->name('album.edit');
+    Route::patch('/album-update/{id}', [AlbumController::class, 'update'])->name('album.update');
+    Route::post('/upload-foto', [AlbumController::class, 'uploadfoto'])->name('uploadfoto');
+    Route::delete('/delete-foto', [AlbumController::class, 'deletefoto'])->name('deletefoto');
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

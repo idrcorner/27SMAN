@@ -34,10 +34,10 @@
                         <p>Prestasi</p>                       
                     </a>            
                 </li>
-                <li class="nav-item  ">
-                    <a href="#" class="collapsed" aria-expanded="false">
+                <li class="nav-item  {{$menu=='album'? ' active ':''}} ">
+                    <a href="{{route('album.index')}}" class="collapsed" aria-expanded="false">
                         <i class="icon-picture"></i>
-                        <p>Galeri</p>                       
+                        <p>Album</p>                       
                     </a>            
                 </li>
             
