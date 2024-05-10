@@ -304,4 +304,6 @@ body[data-background-color="dark"] .demo-icon .icon-class {
 	}
 }
 
- 
+.bg-dark{
+    background-color: #202334 !important;
+  }

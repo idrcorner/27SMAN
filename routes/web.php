@@ -7,6 +7,7 @@ use App\Http\Controllers\PrestasiController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\MainController;
+use App\Http\Controllers\WebController;
 use App\Http\Controllers\KontakController;
 use App\Http\Controllers\AlbumController;
 use App\Http\Controllers\QuoteController;
@@ -26,9 +27,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('home');
+Route::get('/', [WebController::class, 'index'])->name('home');
 
  
 
