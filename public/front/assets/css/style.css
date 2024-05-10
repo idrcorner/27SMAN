@@ -416,26 +416,29 @@ img {
   float: left;
   margin-top: -80px;
   width: 100%;
+
 }
 #mu-service .mu-service-area {
   display: inline;
   float: left;
   width: 100%;
+ 
 }
 #mu-service .mu-service-area .mu-service-single {
-  background-color: #01bafd;
+  background-color: #153448;
   color: #fff;
   display: inline;
   float: left;
   padding: 35px 25px;
   text-align: center;
   width: 33.33%;
+  border-radius: 5px !important;
 }
 #mu-service .mu-service-area .mu-service-single:nth-child(2) {
-  background-color: #2ecc71;
+  background-color: #DFD0B8;
 }
 #mu-service .mu-service-area .mu-service-single:nth-child(3) {
-  background-color: #45a0de;
+  background-color: #3C5B6F;
 }
 #mu-service .mu-service-area .mu-service-single span {
   font-size: 30px;

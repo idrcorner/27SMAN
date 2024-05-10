@@ -64,22 +64,22 @@
           <div class="mu-service-area">
             <!-- Start single service -->
             <div class="mu-service-single">
-              <span class="fa fa-book"></span>
-              <h3>Learn Online</h3>
+              <span class="fas fa-school"></span>
+              <h3>Profil Sekolah</h3>
               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima officiis, deleniti dolorem exercitationem praesentium, est!</p>
             </div>
             <!-- Start single service -->
             <!-- Start single service -->
             <div class="mu-service-single">
               <span class="fa fa-users"></span>
-              <h3>Expert Teachers</h3>
+              <h3>Guru dan Tata Usaha</h3>
               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima officiis, deleniti dolorem exercitationem praesentium, est!</p>
             </div>
             <!-- Start single service -->
             <!-- Start single service -->
             <div class="mu-service-single">
-              <span class="fa fa-table"></span>
-              <h3>Best Classrooms</h3>
+              <span class="fas fa-trophy"></span>
+              <h3>Prestasi</h3>
               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima officiis, deleniti dolorem exercitationem praesentium, est!</p>
             </div>
             <!-- Start single service -->
@@ -101,19 +101,21 @@
                 <div class="mu-about-us-left">
                   <!-- Start Title -->
                   <div class="mu-title">
-                    <h2>About Us</h2>              
+                    <h3 class="text-bold text-left mb-5"><strong>Sambutan Kepala Sekolah</strong></h3>              
                   </div>
-                  <!-- End Title -->
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum pariatur fuga eveniet soluta aspernatur rem, nam voluptatibus voluptate voluptates sapiente, inventore. Voluptatem, maiores esse molestiae.</p>
-                  <ul>
-                    <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</li>
-                    <li>Saepe a minima quod iste libero rerum dicta!</li>
-                    <li>Voluptas obcaecati, iste porro fugit soluta consequuntur. Veritatis?</li>
-                    <li>Ipsam deserunt numquam ad error rem unde, omnis.</li>
-                    <li>Repellat assumenda adipisci pariatur ipsam eos similique, explicabo.</li>
-                  </ul>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis quaerat harum facilis excepturi et? Mollitia!</p>
-                </div>
+                  <br>
+                  <br>
+                  <br>
+              <div class="text-justify">
+                <p>
+                    Salam sejahtera bagi seluruh siswa, guru, orang tua, dan semua pihak yang terlibat dalam pendidikan di lingkungan SMA Negeri 27 Batam. Saya  dengan rasa hormat dan kebanggaan sebagai Kepala Sekolah, mengucapkan terima kasih atas kunjungan Anda di website kami.</p><p>
+    
+    Di SMA Negeri 27 Batam, kami berkomitmen untuk memberikan pendidikan berkualitas dan menciptakan lingkungan belajar yang mendukung untuk setiap siswa. Kami percaya bahwa setiap individu memiliki potensi yang luar biasa untuk berkembang, dan melalui kerja sama yang erat antara siswa, guru, orang tua, dan staf sekolah, kami dapat menciptakan suasana belajar yang positif dan membangun.</p><p>
+    
+              </div>
+<button class="btn btn-sm btn-primary">Baca Selengkapnya</button>
+               </p>
+             </div>
               </div>
               <div class="col-lg-6 col-md-6">
                 <div class="mu-about-us-right">                            

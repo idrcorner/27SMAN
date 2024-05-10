@@ -50,11 +50,12 @@ Author URI : http://www.markups.io/
 }
 
 #mu-slider .mu-slider-single .mu-slider-content span {
-  background-color: #01bafd;
+  background-color: #01bafd43;
 }
 #mu-slider .slick-prev,
 #mu-slider .slick-next {
-  background-color: #01bafd;
+  background-color: #01bafd20;
+  border-radius: 100%;
 }
 
 #mu-features .mu-features-area .mu-features-content .mu-single-feature span {

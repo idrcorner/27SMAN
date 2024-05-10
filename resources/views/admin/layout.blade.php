@@ -65,6 +65,9 @@
 								<i class="fa fa-search"></i>
 							</a>
 						</li>
+					<a href="{{route('home')}}" target="_blank">
+					<strong class="text-white mr-5">	<i class="icon-magnifier mr-2"></i> Lihat Website</strong> 
+					</a>
 					<strong class="text-white mr-3">{{auth()->user()->name}}</strong>
 						<li class="nav-item dropdown hidden-caret">
 							<a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#" aria-expanded="false">

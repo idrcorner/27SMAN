@@ -42,7 +42,11 @@
       <i class="fa fa-angle-up"></i>      
     </a>
   <!-- END SCROLL TOP BUTTON -->
-
+  @php
+  if(!isset($menu)){
+      $menu='home';
+  }
+@endphp
   <!-- Start header  -->
   <header id="mu-header">
     <div class="container">
@@ -102,12 +106,14 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul id="top-menu" class="nav navbar-nav navbar-right main-nav">
-            <li class="active"><a href="index.html">HOME</a></li>            
+            <li class="{{$menu=='home'?' active':''}}"><a href="index.html">HOME</a></li>            
             <li class="dropdown">
               <a href="#" class="dropdown-toggle  " data-toggle="dropdown">TENTANG KAMI <span class="fa fa-angle-down"></span></a>
               <ul class="dropdown-menu" role="menu">
-                <li><a href="course.html">Course Archive</a></li>                
-                <li><a href="course-detail.html">Course Detail</a></li>                
+                @foreach ($tentangkamis as $item)
+                    <li><a href=" ">{{$item->judul}}</a></li>               
+                @endforeach
+  
               </ul>
             </li>    
             <li><a href="contact.html">INFORMASI SEKOLAH</a></li>
@@ -138,7 +144,7 @@
         <div class="row">
           <div class="col-md-12">            
             <form class="mu-search-form">
-              <input type="search" placeholder="Type Your Keyword(s) & Hit Enter">              
+              <input type="search" placeholder="Ketik apa yang anda cari & Tekan Enter">              
             </form>
           </div>
         </div>
@@ -211,7 +217,7 @@
     <div class="mu-footer-bottom">
       <div class="container">
         <div class="mu-footer-bottom-area">
-          <p>&copy; All Right Reserved. Designed by <a href="http://www.markups.io/" rel="nofollow">MarkUps.io</a></p>
+           <p> 2024,  <i class="fa fa-heart heart text-danger"></i>   {{appname()}} </p>
         </div>
       </div>
     </div>
