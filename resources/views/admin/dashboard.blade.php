@@ -14,8 +14,14 @@
                     <h5 class="text-white op-7 mb-2">Selamat Datang, {{auth()->user()->name}}</h5>
                 </div>
                 <div class="ml-md-auto py-2 py-md-0">
+                   
+                    @if (auth()->user()->role=='admin')
                     <a href="{{route('album.create')}}" class="btn btn-white btn-border btn-round mr-2">Tambah Album Foto</a>
                     <a href="{{route('informasi.create')}}" class="btn btn-secondary btn-round">Tambah Informasi Sekolah</a>
+                    @else
+                    <a href="{{route('blog.create')}}" class="btn btn-white btn-border btn-round mr-2">Tambah Artikel</a>
+                   
+                    @endif
                 </div>
             </div>
         </div>

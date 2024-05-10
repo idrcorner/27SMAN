@@ -61,7 +61,7 @@
                                     
                                         <hr>
                                    <input type="submit" value="UBAH" class="btn btn-primary">
-                                   {{-- <a href="{{route('kontak.index')}}" class="btn btn-link" >Batal</a> --}}
+                                   <a href="{{route('dashboard')}}" class="btn btn-link" >Batal</a>
                                 
                                 </form>
                             </div>

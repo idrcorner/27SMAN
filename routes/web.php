@@ -4,13 +4,16 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\GuruController;
 use App\Http\Controllers\PrestasiController;
+use App\Http\Controllers\BlogController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\KontakController;
 use App\Http\Controllers\AlbumController;
 use App\Http\Controllers\QuoteController;
 use App\Http\Controllers\InformasiController ;
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\RegisteredUserController;
+use Illuminate\Support\Facades\Route;
+ 
 
 /*
 |--------------------------------------------------------------------------
@@ -32,10 +35,7 @@ Route::get('/', function () {
 Route::get('/dashboard',  [MainController::class, 'dashboard'])->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware(['auth','role:admin'])->group(function () {
-    Route::get('register', [RegisteredUserController::class, 'create'])
-    ->name('register');
-     Route::post('register', [RegisteredUserController::class, 'store']);
-
+   
     //Informasi
     Route::get('/informasi-sekolah', [InformasiController::class, 'index'])->name('informasi.index');
     Route::get('/informasi-sekolah-add', [InformasiController::class, 'create'])->name('informasi.create');
@@ -44,6 +44,12 @@ Route::middleware(['auth','role:admin'])->group(function () {
     Route::get('/informasi-sekolah-prev/{id}', [InformasiController::class, 'show'])->name('informasi.show');
     Route::get('/informasi-sekolah-edit/{id}', [InformasiController::class, 'edit'])->name('informasi.edit');
     Route::patch('/informasi-sekolah-update/{id}', [InformasiController::class, 'update'])->name('informasi.update');
+
+    //Blog Guru
+    Route::get('/blogguru', [BlogController::class, 'blogadminindex'])->name('blogadmin.index');
+    Route::get('/blogguru-prev/{id}', [BlogController::class, 'showadmin'])->name('blogadmin.show');
+    Route::get('/blogguru-status/{id}', [BlogController::class, 'statusblog'])->name('statusblog');
+
     //Profil
     Route::get('/profil-sekolah', [ProfilController::class, 'index'])->name('profil.index');
     Route::get('/profil-sekolah-add', [ProfilController::class, 'create'])->name('profil.create');
@@ -90,10 +96,35 @@ Route::middleware(['auth','role:admin'])->group(function () {
     //Kontak
     Route::get('/kontak', [KontakController::class, 'index'])->name('kontak.index');
     Route::patch('/kontak-update/{id}', [KontakController::class, 'update'])->name('kontak.update');
+    //User
+    Route::get('/user', [UserController::class, 'index'])->name('user.index');
+    Route::get('/user-add', [UserController::class, 'create'])->name('user.create');
+    Route::post('/user-store', [UserController::class, 'store'])->name('user.store');
+    Route::delete('/user', [UserController::class, 'delete'])->name('user.delete');
+    Route::get('/user-edit/{id}', [UserController::class, 'edit'])->name('user.edit');
+    Route::patch('/user-update/{id}', [UserController::class, 'update'])->name('user.update');
+    Route::get('register', [RegisteredUserController::class, 'create'])
+    ->name('register');
+
+Route::post('register', [RegisteredUserController::class, 'store']);
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+
+Route::middleware(['auth','role:blogguru'])->group(function () {
+   
+    //Blog
+    Route::get('/blog', [BlogController::class, 'index'])->name('blog.index');
+    Route::get('/blog-add', [BlogController::class, 'create'])->name('blog.create');
+    Route::post('/blog-store', [BlogController::class, 'store'])->name('blog.store');
+    Route::delete('/blog', [BlogController::class, 'delete'])->name('blog.delete');
+    Route::get('/blog-prev/{id}', [BlogController::class, 'show'])->name('blog.show');
+    Route::get('/blog-edit/{id}', [BlogController::class, 'edit'])->name('blog.edit');
+    Route::patch('/blog-update/{id}', [BlogController::class, 'update'])->name('blog.update');
+ 
 });
 
 require __DIR__.'/auth.php';

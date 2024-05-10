@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Informasi;
-use Illuminate\Support\Str;
+ 
 
 class InformasiController extends Controller
 {
