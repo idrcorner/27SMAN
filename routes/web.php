@@ -5,10 +5,13 @@ use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\GuruController;
 use App\Http\Controllers\PrestasiController;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\VideoController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\WebController;
+use App\Http\Controllers\SliderController;
 use App\Http\Controllers\KontakController;
+use App\Http\Controllers\KepsekController;
 use App\Http\Controllers\AlbumController;
 use App\Http\Controllers\QuoteController;
 use App\Http\Controllers\InformasiController ;
@@ -49,6 +52,10 @@ Route::middleware(['auth','role:admin'])->group(function () {
     Route::get('/blogguru-prev/{id}', [BlogController::class, 'showadmin'])->name('blogadmin.show');
     Route::get('/blogguru-status/{id}', [BlogController::class, 'statusblog'])->name('statusblog');
 
+    //Kepsek
+    Route::get('/kepsek', [KepsekController::class, 'edit'])->name('kepsek.edit');
+    Route::patch('/kepsek/{id}', [KepsekController::class, 'update'])->name('kepsek.update');
+
     //Profil
     Route::get('/profil-sekolah', [ProfilController::class, 'index'])->name('profil.index');
     Route::get('/profil-sekolah-add', [ProfilController::class, 'create'])->name('profil.create');
@@ -83,6 +90,22 @@ Route::middleware(['auth','role:admin'])->group(function () {
     Route::patch('/album-update/{id}', [AlbumController::class, 'update'])->name('album.update');
     Route::post('/upload-foto', [AlbumController::class, 'uploadfoto'])->name('uploadfoto');
     Route::delete('/delete-foto', [AlbumController::class, 'deletefoto'])->name('deletefoto');
+    //Video
+    Route::get('/video', [VideoController::class, 'index'])->name('video.index');
+    Route::get('/video-add', [VideoController::class, 'create'])->name('video.create');
+    Route::post('/video-store', [VideoController::class, 'store'])->name('video.store');
+    Route::delete('/video', [VideoController::class, 'delete'])->name('video.delete');
+    Route::get('/video-prev/{id}', [VideoController::class, 'show'])->name('video.show');
+    Route::get('/video-edit/{id}', [VideoController::class, 'edit'])->name('video.edit');
+    Route::patch('/video-update/{id}', [VideoController::class, 'update'])->name('video.update');
+   //Slider
+   Route::get('/slider', [SliderController::class, 'index'])->name('slider.index');
+   Route::get('/slider-add', [SliderController::class, 'create'])->name('slider.create');
+   Route::post('/slider-store', [SliderController::class, 'store'])->name('slider.store');
+   Route::delete('/slider', [SliderController::class, 'delete'])->name('slider.delete');
+ 
+   Route::get('/slider-edit/{id}', [SliderController::class, 'edit'])->name('slider.edit');
+   Route::patch('/slider-update/{id}', [SliderController::class, 'update'])->name('slider.update');
 
     //Quote
     Route::get('/quote', [QuoteController::class, 'index'])->name('quote.index');

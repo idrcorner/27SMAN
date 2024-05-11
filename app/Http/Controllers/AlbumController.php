@@ -12,11 +12,11 @@ class AlbumController extends Controller
        $albums=Album::orderby('tgl','desc')->get();
         return view('admin.album.index')
            ->with('albums',$albums)
-           ->with('menu','album');
+           ->with('menu','album')->with('menuparent','galeri');
      }
   
      public function create(){
-      return view('admin.album.create')->with('menu','album');
+      return view('admin.album.create')->with('menu','album')->with('menuparent','galeri');
      }
   
      public function store(Request $request){
@@ -56,7 +56,7 @@ class AlbumController extends Controller
         return view('admin.album.show')
            ->with('album',$album)
            ->with('fotos',$fotos)
-           ->with('menu','album');
+           ->with('menu','album')->with('menuparent','galeri');
      }
   
      
@@ -66,7 +66,7 @@ class AlbumController extends Controller
   
         return view('admin.album.edit')
            ->with('album',$album)
-           ->with('menu','album');
+           ->with('menu','album')->with('menuparent','galeri');
      }
   
      public function update(Request $request,$id){

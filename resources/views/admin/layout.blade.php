@@ -31,6 +31,9 @@
         if(!isset($menu)){
             $menu='';
         }
+        if(!isset($menuparent)){
+            $menuparent='';
+        }
     @endphp
 	<div class="wrapper" id="sideB">
 		<div class="main-header">

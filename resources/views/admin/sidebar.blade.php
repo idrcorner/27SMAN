@@ -35,10 +35,35 @@
                     <p>Prestasi</p>                       
                 </a>            
             </li>
-            <li class="nav-item  {{$menu=='album'? ' active ':''}} ">
-                <a href="{{route('album.index')}}" class="collapsed" aria-expanded="false">
-                    <i class="icon-picture"></i>
-                    <p>Album</p>                       
+            <li class="nav-item  {{$menuparent=='galeri'? ' active ':''}}">
+            <a data-toggle="collapse" href="#dashboard" class="collapsed" aria-expanded="false">
+                <i class="icon-picture"></i>
+                <p>Galeri</p>
+                <span class="caret"></span>
+            </a>
+            <div class="collapse  {{$menuparent=='galeri'? ' show ':''}}" id="dashboard">
+                <ul class="nav nav-collapse">
+                    <li   class=" {{$menu=='album'? 'active   ':''}} ">
+                        <a href="{{route('album.index')}}"  aria-expanded="false">
+                            <i class="icon-picture"></i>
+                            <p>Album Foto</p>                       
+                        </a>            
+                    </li>
+                   
+                    <li    class=" {{$menu=='video'? ' active ':''}} ">
+                        <a href="{{route('video.index')}}"  aria-expanded="false">
+                            <i class=" icon-camrecorder"></i>
+                            <p>Video</p>                       
+                        </a>            
+                    </li>
+                </ul>
+            </div>
+         </li>
+            
+            <li class="nav-item  {{$menu=='slider'? ' active ':''}} ">
+                <a href="{{route('slider.index')}}" class="collapsed" aria-expanded="false">
+                    <i class="icon-control-end"></i>
+                    <p>Slider</p>                       
                 </a>            
             </li>
             <li class="nav-item  {{$menu=='quote'? ' active ':''}} ">
@@ -58,6 +83,12 @@
             <a href="{{route('blogadmin.index')}}" class="collapsed" aria-expanded="false">
                 <i class="icon-book-open"></i>
                 <p>Blog Guru</p>                       
+            </a>            
+        </li>
+        <li class="nav-item  {{$menu=='kepsek'? ' active ':''}} ">
+            <a href="{{route('kepsek.edit')}}" class="collapsed" aria-expanded="false">
+                <i class="icon-user"></i>
+                <p>Kepala Sekolah</p>                       
             </a>            
         </li>
         <li class="nav-item  {{$menu=='kontak'? ' active ':''}} ">
