@@ -25,6 +25,7 @@
  
     <!-- Fonts and icons -->
 	<script src="{{url('assets/js/plugin/webfont/webfont.min.js')}}"></script>
+  @yield('css')
 	<script>
 		WebFont.load({
 			google: {"families":["Lato:300,400,700,900"]},
@@ -34,6 +35,11 @@
 			}
 		});
 	</script>
+  <style>
+    li.active a{
+      color:rgb(0, 170, 255) !important;
+    }
+  </style>
   </head>
   <body> 
 
@@ -58,11 +64,11 @@
                 <div class="mu-header-top-left">
                   <div class="mu-top-email">
                     <i class="fa fa-envelope"></i>
-                    <span>info@markups.io</span>
+                    <span>{{$kontak->email}}</span>
                   </div>
                   <div class="mu-top-phone">
                     <i class="fa fa-phone"></i>
-                    <span>(568) 986 652</span>
+                    <span>{{$kontak->tlp}}</span>
                   </div>
                 </div>
               </div>
@@ -70,11 +76,11 @@
                 <div class="mu-header-top-right">
                   <nav>
                     <ul class="mu-top-social-nav">
-                      <li><a href="#"><span class="fa fa-facebook"></span></a></li>
-                      <li><a href="#"><span class="fa fa-twitter"></span></a></li>
-                      <li><a href="#"><span class="fa fa-google-plus"></span></a></li>
-                      <li><a href="#"><span class="fa fa-linkedin"></span></a></li>
-                      <li><a href="#"><span class="fa fa-youtube"></span></a></li>
+                      <li><a href="{{$kontak->fb}}" target="_blank"><span class="fab fa-facebook"></span></a></li>
+                      <li><a href="{{$kontak->ig}}" target="_blank"><span class="fab fa-instagram"></span></a></li>
+                      <li><a href="{{$kontak->yt}}" target="_blank"><span class="fab fa-youtube"></span></a></li>
+                      <li><a href="{{$kontak->tw}}" target="_blank"><span class="fab fa-twitter"></span></a></li>
+                     
                     </ul>
                   </nav>
                 </div>
@@ -102,23 +108,23 @@
           <!-- TEXT BASED LOGO -->
           {{-- <a class="navbar-brand" href="index.html"><i class="fa fa-university"></i><span>Varsity</span></a> --}}
           <!-- IMG BASED LOGO  -->
-          <a class="navbar-brand" href="index.html"><img src="{{url('assets/img/logo.svg')}}" alt="logo"></a> 
+          <a class="navbar-brand" href="{{route('home')}}"><img src="{{url('assets/img/logo.svg')}}" alt="logo"></a> 
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul id="top-menu" class="nav navbar-nav navbar-right main-nav">
-            <li class="{{$menu=='home'?' active':''}}"><a href="index.html">HOME</a></li>            
-            <li class="dropdown">
+            <li class="{{$menu=='home'?' active':''}}"><a href="{{route('home')}}">HOME</a></li>            
+            <li class="dropdown {{$menu=='tentangkami'?' active':''}}">
               <a href="#" class="dropdown-toggle  " data-toggle="dropdown">TENTANG KAMI <span class="fa fa-angle-down"></span></a>
               <ul class="dropdown-menu" role="menu">
                 @foreach ($tentangkamis as $item)
-                    <li><a href=" ">{{$item->judul}}</a></li>               
+                    <li><a href="{{route('tentangkamidetail',$item->slug)}}">{{$item->judul}}</a></li>               
                 @endforeach
   
               </ul>
             </li>    
-            <li><a href="contact.html">INFORMASI SEKOLAH</a></li>
-            <li><a href="contact.html">GURU DAN TU</a></li>       
-            <li><a href="gallery.html">BLOG GURU</a></li>
+            <li class="{{$menu=='informasi'?' active':''}}"><a href="{{route('listinformasi')}}">INFORMASI SEKOLAH</a></li>
+            <li><a href="{{route('listguru')}}">GURU DAN TU</a></li>       
+            <li class="{{$menu=='blog'?' active':''}}"><a href="{{route('listblog')}}">BLOG GURU</a></li>
             <li><a href="gallery.html">PRESTASI</a></li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">GALERI <span class="fa fa-angle-down"></span></a>
@@ -162,50 +168,59 @@
       <div class="container">
         <div class="mu-footer-top-area">
           <div class="row">
-            <div class="col-lg-3 col-md-3 col-sm-3">
+            <div class="col-lg-2 col-md-2 col-sm-2">
               <div class="mu-footer-widget">
-                <h4>Information</h4>
-                <ul>
-                  <li><a href="#">About Us</a></li>
-                  <li><a href="">Features</a></li>
-                  <li><a href="">Course</a></li>
-                  <li><a href="">Event</a></li>
-                  <li><a href="">Sitemap</a></li>
-                  <li><a href="">Term Of Use</a></li>
-                </ul>
+                <img src="{{url('assets/img/icon.png')}}" width="100%" alt="" srcset="">
               </div>
             </div>
-            <div class="col-lg-3 col-md-3 col-sm-3">
+           
+           
+            <div class="col-lg-6 col-md-6 col-sm-6">
               <div class="mu-footer-widget">
-                <h4>Student Help</h4>
-                <ul>
-                  <li><a href="">Get Started</a></li>
-                  <li><a href="#">My Questions</a></li>
-                  <li><a href="">Download Files</a></li>
-                  <li><a href="">Latest Course</a></li>
-                  <li><a href="">Academic News</a></li>                  
-                </ul>
-              </div>
-            </div>
-            <div class="col-lg-3 col-md-3 col-sm-3">
-              <div class="mu-footer-widget">
-                <h4>News letter</h4>
-                <p>Get latest update, news & academic offers</p>
-                <form class="mu-subscribe-form">
-                  <input type="email" placeholder="Type your Email">
-                  <button class="mu-subscribe-btn" type="submit">Subscribe!</button>
-                </form>               
-              </div>
-            </div>
-            <div class="col-lg-3 col-md-3 col-sm-3">
-              <div class="mu-footer-widget">
-                <h4>Contact</h4>
+                <h4>{{appname()}}</h4>
                 <address>
-                  <p>P.O. Box 320, Ross, California 9495, USA</p>
-                  <p>Phone: (415) 453-1568 </p>
-                  <p>Website: www.markups.io</p>
-                  <p>Email: info@markups.io</p>
+                 <small>
+                  <p>{{$kontak->alamat}}</p>
+                  <p>Phone: {{$kontak->tlp}} </p>
+                  <p>Email:{{$kontak->email}}</p>
+                 </small>
                 </address>
+             
+                 
+                      <a href="{{$kontak->fb}}" target="_blank"><span class="fab fa-facebook " style="color:white;margin-right:10px"></span></a> 
+                      <a href="{{$kontak->ig}}" target="_blank"><span class="fab fa-instagram " style="color:white;margin-right:10px"></span></a> 
+                     <a href="{{$kontak->yt}}" target="_blank"><span class="fab fa-youtube " style="color:white;margin-right:10px"></span></a> 
+                     <a href="{{$kontak->tw}}" target="_blank"><span class="fab fa-twitter " style="color:white;margin-right:10px"></span></a> 
+                     
+                    
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4">
+              <div class="mu-footer-widget">
+                <h4> _</h4>
+                <table>
+                  <tr>
+                    <td>
+                      <ul>
+                        <li><a href="">Tentang Kami</a></li>
+                        <li><a href="{{route('listinformasi')}}">Informasi Sekolah</a></li>
+                        <li><a href="{{route('listguru')}}">Guru dan Tata Usaha</a></li>
+                        <li><a href="{{route('listblog')}}">Blog Guru</a></li>
+                            
+                      </ul>
+                    </td>
+                    <td style="padding-left:20px">
+                      <ul>
+                        <li><a href="">Sambutan Kepsek</a></li>     
+                        <li><a href="">Prestasi</a></li>                  
+                        <li><a href="">Album Foto</a></li>                  
+                        <li><a href="">Video</a></li>                
+                                
+                      </ul>
+                    </td>
+                  </tr>
+                </table>
+               
               </div>
             </div>
           </div>
@@ -229,7 +244,7 @@
   <script src="{{url('front/assets/js/jquery.min.js')}}"></script>  
   <!-- Include all compiled plugins (below), or include individual files as needed -->
   <script src="{{url('front/assets/js/bootstrap.js')}}"></script>   
-{{url('front/  <!-- Slick slider -->')}}  <script type="text/javascript" src="{{url('front/assets/js/slick.js')}}"></script>
+  <script type="text/javascript" src="{{url('front/assets/js/slick.js')}}"></script>
   <!-- Counter -->
   <script type="text/javascript" src="{{url('front/assets/js/waypoints.js')}}"></script>
   <script type="text/javascript" src="{{url('front/"assets/js/jquery.counterup.js')}}"></script>  

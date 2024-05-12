@@ -9,4 +9,11 @@ class Foto extends Model
 {
     use HasFactory;
     protected $guarded=[];
+
+    function namaalbum(){
+        $album=Album::find($this->album_id);
+        if(!$album) return "";
+
+        return $album->judul;
+    }
 }

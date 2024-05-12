@@ -31,6 +31,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [WebController::class, 'index'])->name('home');
+Route::get('/tentang-kami/{slug}', [WebController::class, 'tentangkamidetail'])->name('tentangkamidetail');
+Route::get('/informasi/{slug}', [WebController::class, 'detailinformasi'])->name('detailinformasi');
+Route::get('/informasi', [WebController::class, 'listinformasi'])->name('listinformasi');
+Route::get('/blog-guru', [WebController::class, 'listblog'])->name('listblog');
+Route::get('/blog-guru/{slug}', [WebController::class, 'detailblog'])->name('detailblog');
+Route::get('/guru-tu', [WebController::class, 'listguru'])->name('listguru');
 
  
 

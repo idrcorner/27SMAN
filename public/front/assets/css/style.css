@@ -906,7 +906,8 @@ img {
 ====================*/
 #mu-testimonial {
   background-attachment: fixed;
-  background-image: url("../img/testimonial-bg.jpg");
+  background-color: #01bafd;
+  /* background-image: url("{{url('assets/img/bg-abstract2.png')}}"); */
   background-position: center center;
   background-size: cover;
   display: inline;

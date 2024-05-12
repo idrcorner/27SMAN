@@ -81,14 +81,14 @@
                 {{-- {!! $kepsek->katasambutan !!} --}}
                 {!! \Illuminate\Support\Str::limit($kepsek->katasambutan , 800) !!}
               </div>
-<button class="btn btn-sm btn-primary">Baca Selengkapnya</button>
+                <button class="btn btn-sm btn-primary">Baca Selengkapnya</button>
                </p>
              </div>
               </div>
               <div class="col-lg-6 col-md-6">
                 <div class="mu-about-us-right">                            
                
-                  <img src="{{url(Storage::url($kepsek->foto))}}"  width="100%" alt="img">
+                  <img src="{{url(Storage::url($kepsek->foto))}}"  width="100%" alt="img" style="border-radius: 5px">
                   
                 </div>
               </div>
@@ -115,25 +115,24 @@
               @foreach ($informasis as $informasi)
               <div class="col-lg-4 col-md-4 col-xs-12">
                 <div class="mu-latest-course-single">
-                  <figure class="mu-latest-course-img">
-                    <a href="#"><img src="{{url(Storage::url($informasi->cover))}}" alt="img"></a>
-                    <figcaption class="mu-latest-course-imgcaption ">
-                    
-                    
-                     
-                      <span><i class="fa fa-eye"></i>{{$informasi->view}}</span>
-
-                      
-                      <span class="mr-5"><i class="fa fa-calendar "> </i>{{ date('d F Y', strtotime($informasi->tgl_publis))}}</span>
-
-                     <a href=""> <span><i class="fa fa-user"> </i>By {{getusername($informasi->user_id)}}</span></a>
-                    </figcaption>
-                  </figure>
+                  <div  >
+                    <a href="{{route('detailinformasi',$informasi->slug)}}"><img src="{{url(Storage::url($informasi->cover))}}" width="100% "alt="img"></a>
+      
+                  </div>
+                  
+                  <div style="padding: 10px" class="text-center">
+                   <small>
+                    <span class="text-primary " style="margin-right:15px"><i class="fa fa-user  " style="margin-right:5px"> </i>Oleh. {{getusername($informasi->user_id)}}</span> 
+                    <span class="text-success " style="margin-right:15px"><i class="fa fa-calendar " style="margin-right:5px"> </i>{{ date('d F Y', strtotime($informasi->tgl_publis))}}</span>
+                    <span  class="text-warning " style="margin-right:15px"><i class="fa fa-eye" style="margin-right:5px"></i>{{$informasi->view}}</span>
+                  </small>
+                  </div>
+                
                   <div class="mu-latest-course-single-content">
-                    <h4>  <a href="#">{{$informasi->judul}}</a></h4>
+                    <h4>  <a href="{{route('detailinformasi',$informasi->slug)}}"><strong>{{$informasi->judul}}</strong></a></h4>
                     <p>{{$informasi->subjudul}}</p>
                     <div class="mu-latest-course-single-contbottom">
-                      <a class="mu-course-details" href="#">Baca Selengkapnya</a>
+                      <a class="  text-primary" href="{{route('detailinformasi',$informasi->slug)}}">Baca Selengkapnya</a>
                      
                     </div>
                   </div>
@@ -143,11 +142,14 @@
               @endforeach
              
             </div>
+           
             <!-- End latest course content -->
           </div>
         </div>
+       
       </div>
     </div>
+   
   </section>
 
 
@@ -157,38 +159,62 @@
         <div class="col-md-12">
           <div class="mu-from-blog-area">
             <!-- start title -->
-            <div class="mu-title">
-              <h2>Artikel</h2>
-             
-            </div>
+           
             <!-- end title -->  
             <!-- start from blog content   -->
             <div class="mu-from-blog-content">
               <div class="row">
                
-                @foreach ($artikels as $arti)
-                <div class="col-md-4 col-sm-4">
-                  <article class="mu-blog-single-item">
-                    <figure class="mu-blog-single-img">
-                      <a href="#"><img src="{{url(Storage::url($arti->cover))}}" alt="img"></a>
-                      <figcaption class="mu-blog-caption">
-                        <h3><a href="#">{{$arti->judul}}</a></h3>
-                      </figcaption>                      
-                    </figure>
-                    <div class="mu-blog-meta">
-                      <a href="#">By {{getusername($arti->user_id)}}</a>
-                      <a href="#">{{ date('d F Y', strtotime($arti->tgl_publis))}}</a>
-                      <span><i class="fa fa-eye"></i>{{$arti->view}}</span>
+                <div class="col-md-8" >
+                  
+                      <h2>Artikel</h2>
+                    <br>
+                    <br>
+                
+                  @foreach ($artikels as $arti)
+              
+                  <div class="card mb-3" style="margin-bottom:20px">
+                    <div class="row no-gutters">
+                      <div class="col-md-4">
+                        <img src="{{url(Storage::url($arti->cover))}}" width="100%" class="card-img" alt="..." style="border-radius: 5px">
+                      </div>
+                      <div class="col-md-8">
+                        <div class="card-body">
+                          <h4 class="card-title"><strong>{{$arti->judul}}</strong></h4>
+                          <p class="card-text">{{$arti->subjudul}}.</p>
+                          <p class="card-text"><small class="text-muted">
+
+                            <div style=" " >
+                              <small>
+                               <span class="text-primary " style="margin-right:15px"><i class="fa fa-user  " style="margin-right:5px"> </i>Oleh. {{getusername($arti->user_id)}}</span> 
+                               <span class="text-success " style="margin-right:15px"><i class="fa fa-calendar " style="margin-right:5px"> </i>{{ date('d F Y', strtotime($arti->tgl_publis))}}</span>
+                               <span  class="text-warning " style="margin-right:15px"><i class="fa fa-eye" style="margin-right:5px"></i>{{$arti->view}}</span>
+                             </small>
+                             </div>
+                          
+                          </small></p>
+                        </div>
+                      </div>
                     </div>
-                    <div class="mu-blog-description text-justify">
-                      <p>{{$arti->subjudul}}</p>
-                      <a class="mu-read-more-btn" href="#">Baca Selengkapnya</a>
-                      <br>
-                      <br>
-                    </div>
-                  </article>
+                  </div> 
+                  @endforeach
                 </div>
-                @endforeach
+                <div class="col-md-2">
+                  
+                    <h2>Video</h2>
+                   <br>
+                   <br>
+                   @foreach ($videos as $video)
+                       <div class="card text-center">
+                        <iframe width="300" height="180" src="https://www.youtube.com/embed/{{$video->deskripsi}}" title=" {{$video->judul}}" frameborder="0" ></iframe>
+                       <strong class="text-center"> {{$video->judul}}</strong>
+                        <hr>
+                       
+                       </div>
+                   @endforeach
+               
+               
+               
                
               </div>
             </div>     
@@ -206,54 +232,22 @@
         <div class="col-md-12">
           <div class="mu-testimonial-area">
             <div id="mu-testimonial-slide" class="mu-testimonial-content">
-              <!-- start testimonial single item -->
-              <div class="mu-testimonial-item">
-                <div class="mu-testimonial-quote">
-                  <blockquote>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem rerum soluta aperiam blanditiis obcaecati eveniet aliquam consequatur nobis eaque id.</p>
-                  </blockquote>
-                </div>
-                <div class="mu-testimonial-img">
-                  <img src="assets/img/testimonial-1.png" alt="img">
-                </div>
-                <div class="mu-testimonial-info">
-                  <h4>John Doe</h4>
-                  <span>Happy Student</span>
-                </div>
+             @foreach ($quotes as $quote)
+             <div class="mu-testimonial-item">
+              <div class="mu-testimonial-quote">
+                <blockquote>
+                  <p>{{$quote->quote}}.</p>
+                </blockquote>
               </div>
-              <!-- end testimonial single item -->
-              <!-- start testimonial single item -->
-              <div class="mu-testimonial-item">
-                <div class="mu-testimonial-quote">
-                  <blockquote>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem rerum soluta aperiam blanditiis obcaecati eveniet aliquam consequatur nobis eaque id.</p>
-                  </blockquote>
-                </div>
-                <div class="mu-testimonial-img">
-                  <img src="assets/img/testimonial-3.png" alt="img">
-                </div>
-                <div class="mu-testimonial-info">
-                  <h4>Rebaca Michel</h4>
-                  <span>Happy Parent</span>
-                </div>
+               
+              <div class="mu-testimonial-info">
+                <h4>{{$quote->oleh}}</h4>
+               
               </div>
-              <!-- end testimonial single item -->
-              <!-- start testimonial single item -->
-              <div class="mu-testimonial-item">
-                <div class="mu-testimonial-quote">
-                  <blockquote>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem rerum soluta aperiam blanditiis obcaecati eveniet aliquam consequatur nobis eaque id.</p>
-                  </blockquote>
-                </div>
-                <div class="mu-testimonial-img">
-                  <img src="assets/img/testimonial-2.png" alt="img">
-                </div>
-                <div class="mu-testimonial-info">
-                  <h4>Stev Smith</h4>
-                  <span>Happy Student</span>
-                </div>
-              </div>
-              <!-- end testimonial single item -->
+            </div>
+             @endforeach
+             
+            
             </div>
           </div>
         </div>

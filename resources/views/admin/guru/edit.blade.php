@@ -61,7 +61,7 @@
                                                <div class="form-group">
                                                 <label for="foto">Foto</label> @error('foto') <span class="text-danger">{{$message}}</span> @enderror
                                                 <img class="img-upload-preview" width="250"src="{{url(Storage::url($guru->foto))}}"  alt="preview">
-                                                <input type="file" class="form-control form-control-file" id="foto" name="foto" accept="image/*" required="" value="{{old('foto')}}" >
+                                                <input type="file" class="form-control form-control-file" id="foto" name="foto" accept="image/*"  value="{{old('foto')}}" >
                                                 <label for="foto" class="  label-input-file btn btn-black btn-round">
                                                     <span class="btn-label">
                                                         <i class="fa fa-file-image"></i>
