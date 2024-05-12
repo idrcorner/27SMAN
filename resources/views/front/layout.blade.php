@@ -125,12 +125,12 @@
             <li class="{{$menu=='informasi'?' active':''}}"><a href="{{route('listinformasi')}}">INFORMASI SEKOLAH</a></li>
             <li><a href="{{route('listguru')}}">GURU DAN TU</a></li>       
             <li class="{{$menu=='blog'?' active':''}}"><a href="{{route('listblog')}}">BLOG GURU</a></li>
-            <li><a href="gallery.html">PRESTASI</a></li>
-            <li class="dropdown">
+            <li class="{{$menu=='prestasi'?' active':''}}"><a href="{{route('listprestasi')}}">PRESTASI</a></li>
+            <li class="dropdown  {{$menu=='galeri'?' active':''}}">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">GALERI <span class="fa fa-angle-down"></span></a>
               <ul class="dropdown-menu" role="menu">
-                <li><a href="blog-archive.html">Foto</a></li>                
-                <li><a href="blog-single.html">Video</a></li>                
+                <li><a href="{{route('listalbum')}}">Foto</a></li>                
+                <li><a href="{{route('listvideo')}}">Video</a></li>                
               </ul>
             </li>            
            
@@ -211,10 +211,10 @@
                     </td>
                     <td style="padding-left:20px">
                       <ul>
-                        <li><a href="">Sambutan Kepsek</a></li>     
-                        <li><a href="">Prestasi</a></li>                  
-                        <li><a href="">Album Foto</a></li>                  
-                        <li><a href="">Video</a></li>                
+                        <li><a href="{{route('katasambutan')}}">Sambutan Kepsek</a></li>     
+                        <li><a href="{{route('listprestasi')}}">Prestasi</a></li>                  
+                        <li><a href="{{route('listalbum')}}">Album Foto</a></li>                  
+                        <li><a href="{{route('listvideo')}}">Video</a></li>                
                                 
                       </ul>
                     </td>
@@ -247,7 +247,7 @@
   <script type="text/javascript" src="{{url('front/assets/js/slick.js')}}"></script>
   <!-- Counter -->
   <script type="text/javascript" src="{{url('front/assets/js/waypoints.js')}}"></script>
-  <script type="text/javascript" src="{{url('front/"assets/js/jquery.counterup.js')}}"></script>  
+  <script type="text/javascript" src="{{url('front/assets/js/jquery.counterup.js')}}"></script>  
   <!-- Mixit slider -->
   <script type="text/javascript" src="{{url('front/assets/js/jquery.mixitup.js')}}"></script>
   <!-- Add fancyBox -->        
@@ -256,6 +256,6 @@
   
   <!-- Custom js -->
   <script src="{{url('front/assets/js/custom.js')}}"></script> 
-
+@yield('script')
   </body>
 </html>

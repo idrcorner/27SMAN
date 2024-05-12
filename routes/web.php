@@ -31,12 +31,19 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [WebController::class, 'index'])->name('home');
+Route::get('/kata-sambutan', [WebController::class, 'katasambutan'])->name('katasambutan');
 Route::get('/tentang-kami/{slug}', [WebController::class, 'tentangkamidetail'])->name('tentangkamidetail');
 Route::get('/informasi/{slug}', [WebController::class, 'detailinformasi'])->name('detailinformasi');
 Route::get('/informasi', [WebController::class, 'listinformasi'])->name('listinformasi');
 Route::get('/blog-guru', [WebController::class, 'listblog'])->name('listblog');
+Route::get('/prestasi', [WebController::class, 'listprestasi'])->name('listprestasi');
+Route::get('/prestasi/{slug}', [WebController::class, 'detailprestasi'])->name('detailprestasi');
 Route::get('/blog-guru/{slug}', [WebController::class, 'detailblog'])->name('detailblog');
+Route::get('/video-detail/{slug}', [WebController::class, 'detailvideo'])->name('detailvideo');
+Route::get('/album-detail/{slug}', [WebController::class, 'detailalbum'])->name('detailalbum');
 Route::get('/guru-tu', [WebController::class, 'listguru'])->name('listguru');
+Route::get('/daftar-album', [WebController::class, 'listalbum'])->name('listalbum');
+Route::get('daftar-video', [WebController::class, 'listvideo'])->name('listvideo');
 
  
 

@@ -90,7 +90,7 @@
                                 <div class="isian">{{$guru->tmpt_lahir}}, {{ date('d F Y', strtotime($guru->tgl_lahir))}} </div>
                                 <div class="judulan">Jenis Kelamin:</div>
                                 <div class="isian">{{$guru->jk==1? "Laki-laki": "Perempuan"}}</div>
-                                <div class="judulan">Jabatan:</div>
+                                <div class="judulan">Jabatan/Tugas:</div>
                                 <div class="isian">{{$guru->jabatan}}</div>
                              
                                 {{-- <table class="guru">

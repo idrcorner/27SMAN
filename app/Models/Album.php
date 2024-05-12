@@ -13,4 +13,11 @@ class Album extends Model
     function jumlahFoto(){
        return Foto::where('album_id',$this->id)->count();
     }
+
+    function getfoto(){
+       $foto= Foto::where('album_id',$this->id)->first();
+       if(!$foto) return 'public/foto/noimage.jpg';
+
+       return $foto->foto;
+    }
 }

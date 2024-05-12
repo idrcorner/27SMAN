@@ -8,8 +8,10 @@ use App\Models\Slider;
 use App\Models\Quote;
 use App\Models\Profile;
 use App\Models\Video;
+use App\Models\Album;
 use App\Models\Foto;
 use App\Models\Guru;
+use App\Models\Prestasi;
 use App\Models\Blog;
 use App\Models\Informasi;
 
@@ -39,6 +41,17 @@ class WebController extends Controller
             ->with('tentang',$tentang)
             ->with('menu','tentangkami'); 
     }
+
+    public function katasambutan(){
+        $tentang=Kepsek::find(1);
+        if(!$tentang) return redirect(route('home'));
+ 
+
+        return view('front.katasambutan')
+            ->with('kepsek',Kepsek::find(1))
+            ->with('menu','tentangkami'); 
+    }
+
     public function listinformasi(){
         $informasis=Informasi::where('status',1)->orderby('tgl_publis','desc')->paginate(20);
         
@@ -47,6 +60,62 @@ class WebController extends Controller
         ->with('kepsek',Kepsek::find(1))
             ->with('informasis',$informasis)
             ->with('menu','informasi'); 
+    }
+    public function listprestasi(){
+        $prestasis=Prestasi::where('status',1)->orderby('created_at','desc')->paginate(20);
+        
+
+        return view('front.listprestasi')
+        ->with('kepsek',Kepsek::find(1))
+            ->with('prestasis',$prestasis)
+            ->with('menu','prestasi'); 
+    }
+    public function listvideo(){
+        $videos=Video::orderby('tgl','desc')->paginate(20);
+        
+
+        return view('front.listvideo')
+        ->with('kepsek',Kepsek::find(1))
+            ->with('videos',$videos)
+            ->with('menu','galeri'); 
+    }
+    public function listalbum(){
+        $albums=Album::orderby('tgl','desc')->paginate(20);
+        
+
+        return view('front.listalbum')
+        ->with('kepsek',Kepsek::find(1))
+            ->with('albums',$albums)
+            ->with('menu','galeri'); 
+    }
+
+    public function detailvideo($slug){
+        $video=Video::where('slug',$slug)->first();
+        if(!$video) return redirect(route('home'));
+ 
+        
+        $view=$video->view +1;
+        $video->update(['view'=>$view]);
+
+        return view('front.detailvideo')
+            ->with('videos',Video::orderby('tgl','desc')->paginate(10))
+            ->with('menu','galeri')
+            ->with('video',$video); 
+    }
+
+    public function detailalbum($slug){
+        $album=Album::where('slug',$slug)->first();
+        if(!$album) return redirect(route('home'));
+        $fotos=Foto::where('album_id',$album->id)->get();
+        
+        $view=$album->view +1;
+        $album->update(['view'=>$view]);
+
+        return view('front.detailalbum2')
+            ->with('videos',Video::orderby('tgl','desc')->paginate(10))
+            ->with('menu','galeri')
+            ->with('fotos',$fotos)
+            ->with('album',$album); 
     }
     public function listblog(){
         $blogs=Blog::where('status',1)->orderby('tgl_publis','desc')->paginate(20);
@@ -79,6 +148,29 @@ class WebController extends Controller
             ->with('informasipop',$informasipop)
             ->with('informasi',$informasi)
             ->with('menu','informasi'); 
+    }
+    public function detailprestasi($slug){
+        $informasi=Prestasi::where('slug',$slug)->first();
+        if(!$informasi) return redirect(route('home'));
+
+        $view=$informasi->view +1;
+        $informasi->update(['view'=>$view]);
+
+        $informasis=Prestasi::where('status',1)->orderby('created_at','desc')->limit(5)->get();
+        $informasipop=Prestasi::where('status',1)->orderby('view','desc')->limit(8)->get();
+        $fotos=Foto::orderby('created_at','desc')->limit(2)->get();
+        $videos=Video::orderby('created_at','desc')->limit(2)->get();
+        $quote = Quote::inRandomOrder()->take(1)->first();
+
+        return view('front.detailprestasi')
+        ->with('kepsek',Kepsek::find(1))
+            ->with('quote',$quote)
+            ->with('fotos',$fotos)
+            ->with('videos',$videos)
+            ->with('informasis',$informasis)
+            ->with('informasipop',$informasipop)
+            ->with('informasi',$informasi)
+            ->with('menu','prestasi'); 
     }
     public function detailblog($slug){
         $informasi=Blog::where('slug',$slug)->first();

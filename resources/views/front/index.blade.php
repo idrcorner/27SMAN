@@ -81,7 +81,7 @@
                 {{-- {!! $kepsek->katasambutan !!} --}}
                 {!! \Illuminate\Support\Str::limit($kepsek->katasambutan , 800) !!}
               </div>
-                <button class="btn btn-sm btn-primary">Baca Selengkapnya</button>
+                <a  href="{{route('katasambutan')}}"class="btn btn-sm btn-primary">Baca Selengkapnya</a>
                </p>
              </div>
               </div>
@@ -176,11 +176,13 @@
                   <div class="card mb-3" style="margin-bottom:20px">
                     <div class="row no-gutters">
                       <div class="col-md-4">
-                        <img src="{{url(Storage::url($arti->cover))}}" width="100%" class="card-img" alt="..." style="border-radius: 5px">
+                        <a href="{{route('detailblog',$arti->slug)}}">  <img src="{{url(Storage::url($arti->cover))}}" width="100%" class="card-img" alt="..." style="border-radius: 5px">
+                        </a>
                       </div>
                       <div class="col-md-8">
                         <div class="card-body">
-                          <h4 class="card-title"><strong>{{$arti->judul}}</strong></h4>
+                         
+                          <a href="{{route('detailblog',$arti->slug)}}"> <h4 class="card-title"><strong>{{$arti->judul}}</strong></h4></a>
                           <p class="card-text">{{$arti->subjudul}}.</p>
                           <p class="card-text"><small class="text-muted">
 

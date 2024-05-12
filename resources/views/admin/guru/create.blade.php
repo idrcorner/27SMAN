@@ -44,7 +44,7 @@
                                         </label>
                                     </div>
                                     <div class="form-group">
-                                        <label for="jabatan">Jabatan</label> @error('jabatan') <span class="text-danger">{{$message}} </span> @enderror
+                                        <label for="jabatan">Jabatan/Tugas</label> @error('jabatan') <span class="text-danger">{{$message}} </span> @enderror
                                         <input type="text" name="jabatan" class="form-control" value="{{old('jabatan')}}" id="jabatan" placeholder="Jabatan" required>                      
                                     </div>
                                     <div class="form-group">

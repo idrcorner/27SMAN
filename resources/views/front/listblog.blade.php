@@ -38,10 +38,10 @@
                         @php
                             $x++;
                         @endphp
-                    <div class="col-md-3 col-sm-3">
-                            <article class="mu-blog-single-item">
+                    <div class="col-md-3 col-sm-3 ">
+                            <article class="mu-blog-single-item ">
                             <figure class="mu-blog-single-img">
-                              <a href="{{route('detailblog',$informasi->slug)}}"><img src="{{url(Storage::url($informasi->cover))}}" alt="img"></a>
+                              <a href="{{route('detailblog',$informasi->slug)}}"><img src="{{url(Storage::url($informasi->cover))}}" alt="img" class=""></a>
                               <figcaption class="mu-blog-caption">
                                 <h4><a href="{{route('detailblog',$informasi->slug)}}"><strong>{{$informasi->judul}}</strong></a></h4>
                               </figcaption>                      
