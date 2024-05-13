@@ -35,7 +35,7 @@
                  <div class="mu-course-container mu-blog-single">
                    <div class="row">
                      <div class="col-md-12">
-                       <article class="mu-blog-single-item text-justify" style="padding:20px">
+                       <article class="mu-blog-single-item text-justify img-thumbnail" style="padding:20px">
                         
                         <iframe width="100%" height="380" src="https://www.youtube.com/embed/{{$video->deskripsi}}" title=" {{$video->judul}}" frameborder="0" ></iframe>
                      
@@ -53,12 +53,12 @@
                     <h3> Video Lainnya</h3><br/>
                @foreach ($videos as $vid)
                     @if ($video->id!=$vid->id)
-                    <div class="card  ">
+                    <div class=" text-center img-thumbnail ">
                         <iframe width="100%" height="180" src="https://www.youtube.com/embed/{{$vid->deskripsi}}" title=" {{$vid->judul}}" frameborder="0" ></iframe>
                      
                       
                        <a href="{{route('detailvideo',$vid->slug)}}"> <strong class="text-center"><small> {{$vid->judul}}</small></strong></a>
-                        <hr>
+                       
                        </div>
                     @endif
                @endforeach

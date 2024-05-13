@@ -146,9 +146,11 @@
                    <div class="mu-single-sidebar">
                      <h3> Foto Terbaru</h3>
                     @foreach ($fotos as $foto)
+                    <a href="{{route('detailalbum',$foto->slugalbum())}}"> 
                     <img src="{{url(Storage::url($foto->foto))}}" width="100%" style="border-radius:5px">
+                    </a>
                     <div class="text-center">
-                        <small >{{$foto->namaalbum()}}</small>
+                       <a href="{{route('detailalbum',$foto->slugalbum())}}"> <small >{{$foto->namaalbum()}}</small></a>
                     </div>
                     <br/> 
                     @endforeach
@@ -158,7 +160,7 @@
                      <h3> Video Terbaru</h3>
                     @foreach ($videos as $video)
                     <iframe width="240" height="150" src="https://www.youtube.com/embed/{{$video->deskripsi}}" title=" {{$video->judul}}" frameborder="0" ></iframe>
-                    <strong class="text-center"> {{$video->judul}}</strong>
+                   <a href="{{route('detailvideo',$video->slug)}}"> <strong class="text-center"> {{$video->judul}}</strong></a>
                      <hr>
                     @endforeach
                    </div>

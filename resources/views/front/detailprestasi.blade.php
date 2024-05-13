@@ -42,7 +42,7 @@
                          <div class="mu-blog-meta">
                     <small>
                         <span class="text-primary " style="margin-right:15px"><i class="fa fa-user  " style="margin-right:5px"> </i>Oleh. {{getusername($informasi->user_id)}}</span> 
-                        <span class="text-success " style="margin-right:15px"><i class="fa fa-calendar " style="margin-right:5px"> </i>{{ date('d F Y', strtotime($informasi->tgl_publis))}}</span>
+                        <span class="text-success " style="margin-right:15px"><i class="fa fa-calendar " style="margin-right:5px"> </i>{{ date('d F Y', strtotime($informasi->created_at))}}</span>
                         <span  class="text-warning " style="margin-right:15px"><i class="fa fa-eye" style="margin-right:5px"></i>{{$informasi->view}}</span>
                   
                     </small>
@@ -62,8 +62,8 @@
                    <div class="col-md-12">
                      <div class="mu-related-item">
                        <h3>Baca Juga:</h3>
-                       <div class="mu-related-item-area">
-                         <div id="mu-related-item-slide">
+                       <div class="mu-relatved-item-area">
+                         <div id="mu-relatevd-item-slide">
                             @php
                                 $a=0;
                             @endphp
@@ -85,7 +85,7 @@
                                   <p class="card-text">
                                     <small>
                                         <span class="text-primary " style="margin-right:15px"><i class="fa fa-user  " style="margin-right:5px"> </i>Oleh. {{getusername($info->user_id)}}</span> 
-                                        <span class="text-success " style="margin-right:15px"><i class="fa fa-calendar " style="margin-right:5px"> </i>{{ date('d F Y', strtotime($info->tgl_publis))}}</span>
+                                        <span class="text-success " style="margin-right:15px"><i class="fa fa-calendar " style="margin-right:5px"> </i>{{ date('d F Y', strtotime($info->created_at))}}</span>
                                         <span  class="text-warning " style="margin-right:15px"><i class="fa fa-eye" style="margin-right:5px"></i>{{$info->view}}</span>
                                   
                                     </small>
@@ -151,7 +151,7 @@
                     <h3> Video Terbaru</h3>
                    @foreach ($videos as $video)
                    <iframe width="240" height="150" src="https://www.youtube.com/embed/{{$video->deskripsi}}" title=" {{$video->judul}}" frameborder="0" ></iframe>
-                   <strong class="text-center"> {{$video->judul}}</strong>
+                   <a href="{{route('detailvideo',$video->slug)}}"> <strong class="text-center"> {{$video->judul}}</strong></a>
                     <hr>
                    @endforeach
                   </div>
@@ -160,9 +160,11 @@
                    <div class="mu-single-sidebar">
                      <h3> Foto Terbaru</h3>
                     @foreach ($fotos as $foto)
+                    <a href="{{route('detailalbum',$foto->slugalbum())}}"> 
                     <img src="{{url(Storage::url($foto->foto))}}" width="100%" style="border-radius:5px">
+                    </a>
                     <div class="text-center">
-                        <small >{{$foto->namaalbum()}}</small>
+                      <a href="{{route('detailalbum',$foto->slugalbum())}}">   <small >{{$foto->namaalbum()}}</small></a>
                     </div>
                     <br/> 
                     @endforeach

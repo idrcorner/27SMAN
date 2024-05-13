@@ -133,7 +133,7 @@ class WebController extends Controller
         $view=$informasi->view +1;
         $informasi->update(['view'=>$view]);
 
-        $informasis=Informasi::where('status',1)->orderby('tgl_publis','desc')->limit(3)->get();
+        $informasis=Informasi::where('status',1)->orderby('tgl_publis','desc')->limit(7)->get();
         $informasipop=Informasi::where('status',1)->orderby('view','desc')->limit(8)->get();
         $fotos=Foto::orderby('created_at','desc')->limit(2)->get();
         $videos=Video::orderby('created_at','desc')->limit(2)->get();
@@ -207,6 +207,30 @@ class WebController extends Controller
             ->with('gurus',$gurus)
             ->with('menu','blog'); 
     }
+    public function listprofil(){
+       
+        
 
-    
+        return view('front.listprofil')
+        ->with('kepsek',Kepsek::find(1))
+            
+            ->with('menu','tentangkami'); 
+    }
+
+    public function pencarian(Request $request){
+         $informasis=Informasi::where('judul', 'like', '%'.$request->cari.'%')->orderby('tgl_publis','desc')->get();
+         $blogs=Blog::where('judul', 'like', '%'.$request->cari.'%')->orderby('tgl_publis','desc')->get();
+         $albums=Album::where('judul', 'like', '%'.$request->cari.'%')->orderby('tgl','desc')->get();
+         $videos=Video::where('judul', 'like', '%'.$request->cari.'%')->orderby('tgl','desc')->get();
+         $total=count($informasis)+count($blogs)+count($albums)+count($videos);
+         return view('front.pencarian')
+         ->with('kepsek',Kepsek::find(1))
+             ->with('informasis',$informasis)
+             ->with('blogs',$blogs)
+             ->with('total',$total)
+             ->with('albums',$albums)
+             ->with('videos',$videos)
+             ->with('cari',$request->cari)
+             ->with('menu',' '); 
+    }
 }

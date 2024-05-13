@@ -40,11 +40,11 @@
                         @endphp
                     <div class="col-md-4 col-sm-4">
                      
-                        <div class="card text-center">
+                        <div class="card text-center ">
                          <iframe width="100%" height="180" src="https://www.youtube.com/embed/{{$video->deskripsi}}" title=" {{$video->judul}}" frameborder="0" ></iframe>
                       
                        
-                       <a href="{{route('detailvideo',$video->slug)}}">  <strong class="text-center"> {{$video->judul}}</strong></a>
+                        <a href="{{route('detailvideo',$video->slug)}}">  <strong class="text-center"> {{$video->judul}}</strong></a>
                            <hr>
                         </div>
                    

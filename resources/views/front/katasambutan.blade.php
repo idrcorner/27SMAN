@@ -29,7 +29,7 @@
           <div class="mu-course-content-area">
              <div class="row">
                 <div class="col-md-4 text-center">
-                    <img src="{{url(Storage::url($kepsek->foto))}}" width="100%" alt="Foto Kepala Sekolah" style="margin-bottom:10px">
+                    <img src="{{url(Storage::url($kepsek->foto))}}" width="100%" alt="Foto Kepala Sekolah" class="img-thumbnail" style="margin-bottom:10px">
                         
                     <p style="margin-bottom:-5px"><strong>{{$kepsek->nama}}</strong></p>
                     <small  >NIP:  {{$kepsek->nip}} </small>

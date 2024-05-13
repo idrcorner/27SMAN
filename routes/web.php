@@ -32,6 +32,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [WebController::class, 'index'])->name('home');
 Route::get('/kata-sambutan', [WebController::class, 'katasambutan'])->name('katasambutan');
+Route::get('/list-profil-sekolah', [WebController::class, 'listprofil'])->name('listprofil');
 Route::get('/tentang-kami/{slug}', [WebController::class, 'tentangkamidetail'])->name('tentangkamidetail');
 Route::get('/informasi/{slug}', [WebController::class, 'detailinformasi'])->name('detailinformasi');
 Route::get('/informasi', [WebController::class, 'listinformasi'])->name('listinformasi');
@@ -44,6 +45,7 @@ Route::get('/album-detail/{slug}', [WebController::class, 'detailalbum'])->name(
 Route::get('/guru-tu', [WebController::class, 'listguru'])->name('listguru');
 Route::get('/daftar-album', [WebController::class, 'listalbum'])->name('listalbum');
 Route::get('daftar-video', [WebController::class, 'listvideo'])->name('listvideo');
+Route::post('pencarian', [WebController::class, 'pencarian'])->name('pencarian');
 
  
 

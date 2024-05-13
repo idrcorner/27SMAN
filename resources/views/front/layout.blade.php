@@ -149,8 +149,9 @@
       <div class="container">
         <div class="row">
           <div class="col-md-12">            
-            <form class="mu-search-form">
-              <input type="search" placeholder="Ketik apa yang anda cari & Tekan Enter">              
+            <form class="mu-search-form" method="POST" action="{{route('pencarian')}}">
+              @csrf
+              <input type="search" name="cari" placeholder="Ketik apa yang anda cari & Tekan Enter">              
             </form>
           </div>
         </div>

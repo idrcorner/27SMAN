@@ -35,23 +35,28 @@
           <div class="mu-service-area">
             <!-- Start single service -->
             <div class="mu-service-single">
+              <a href="{{route('listprofil')}}" style="color:#DFD0B8">
               <span class="fas fa-school"></span>
               <h3>Profil Sekolah</h3>
-    
+              </a>
             </div>
             <!-- Start single service -->
             <!-- Start single service -->
-            <div class="mu-service-single">
-              <span class="fa fa-users"></span>
-              <h3>Guru dan Tata Usaha</h3>
-            
-            </div>
+           
+              <div class="mu-service-single">
+                <a href="{{route('listguru')}}">
+                <span class="fa fa-users"></span>
+                <h3>Guru dan Tata Usaha</h3>
+              </a>
+              </div>
+          
             <!-- Start single service -->
             <!-- Start single service -->
             <div class="mu-service-single">
+              <a href="{{route('listprestasi')}}"  style="color:#DFD0B8">
               <span class="fas fa-trophy"></span>
               <h3>Prestasi</h3>
-           
+              </a>
             </div>
             <!-- Start single service -->
           </div>
@@ -88,7 +93,7 @@
               <div class="col-lg-6 col-md-6">
                 <div class="mu-about-us-right">                            
                
-                  <img src="{{url(Storage::url($kepsek->foto))}}"  width="100%" alt="img" style="border-radius: 5px">
+                  <img src="{{url(Storage::url($kepsek->foto))}}"  width="100%" alt="img" style="border-radius: 5px" class="img-thumbnail">
                   
                 </div>
               </div>
@@ -114,9 +119,11 @@
             <div id="mu-latest-course-slide" class="mu-latest-courses-content">
               @foreach ($informasis as $informasi)
               <div class="col-lg-4 col-md-4 col-xs-12">
-                <div class="mu-latest-course-single">
+                <div class="mu-latest-course-single" style="border-radius:5px">
                   <div  >
-                    <a href="{{route('detailinformasi',$informasi->slug)}}"><img src="{{url(Storage::url($informasi->cover))}}" width="100% "alt="img"></a>
+                    <a href="{{route('detailinformasi',$informasi->slug)}}">
+                      <img src="{{url(Storage::url($informasi->cover))}}" width="100% "alt="img" style="border-radius:5px 5px 0px 0px">
+                    </a>
       
                   </div>
                   
@@ -132,7 +139,7 @@
                     <h4>  <a href="{{route('detailinformasi',$informasi->slug)}}"><strong>{{$informasi->judul}}</strong></a></h4>
                     <p>{{$informasi->subjudul}}</p>
                     <div class="mu-latest-course-single-contbottom">
-                      <a class="  text-primary" href="{{route('detailinformasi',$informasi->slug)}}">Baca Selengkapnya</a>
+                     <small> <a class="  text-primary" href="{{route('detailinformasi',$informasi->slug)}}">Baca Selengkapnya</a></small>
                      
                     </div>
                   </div>
@@ -173,7 +180,7 @@
                 
                   @foreach ($artikels as $arti)
               
-                  <div class="card mb-3" style="margin-bottom:20px">
+                  <div class="card mb-3 img-thumbnail" style="margin-bottom:20px">
                     <div class="row no-gutters">
                       <div class="col-md-4">
                         <a href="{{route('detailblog',$arti->slug)}}">  <img src="{{url(Storage::url($arti->cover))}}" width="100%" class="card-img" alt="..." style="border-radius: 5px">
@@ -201,18 +208,20 @@
                   </div> 
                   @endforeach
                 </div>
-                <div class="col-md-2">
+                <div class="col-md-4">
                   
                     <h2>Video</h2>
                    <br>
                    <br>
                    @foreach ($videos as $video)
-                       <div class="card text-center">
-                        <iframe width="300" height="180" src="https://www.youtube.com/embed/{{$video->deskripsi}}" title=" {{$video->judul}}" frameborder="0" ></iframe>
+                       <div class="card text-center img-thumbnail">
+                        <iframe width="100%" height="200" src="https://www.youtube.com/embed/{{$video->deskripsi}}" title=" {{$video->judul}}" frameborder="0" ></iframe>
                        <strong class="text-center"> {{$video->judul}}</strong>
-                        <hr>
+                       
                        
                        </div>
+                       <br/>
+                       <br/>
                    @endforeach
                
                

@@ -93,35 +93,7 @@
                                 <div class="judulan">Jabatan/Tugas:</div>
                                 <div class="isian">{{$guru->jabatan}}</div>
                              
-                                {{-- <table class="guru">
-                                        <tr>
-                                            <td style="vertical-align: text-top"><strong>Nama</strong></td>
-                                            <td style="vertical-align: text-top">:</td>
-                                            <td style="padding-left:10px"><strong>{{$guru->nama}}</strong></td>
-                                        </tr>
-                                       
-                                        <tr>
-                                            <td style="vertical-align: text-top"><strong>Tempat Lahir</strong></td>
-                                            <td style="vertical-align: text-top">:</td>
-                                            <td style="padding-left:10px">{{$guru->tmpt_lahir}}</td>
-                                        </tr>
-                                        <tr>
-                                            <td style="vertical-align: text-top"><strong>Tanggal Lahir</strong></td>
-                                            <td style="vertical-align: text-top">:</td>
-                                            <td style="padding-left:10px">{{ date('d F Y', strtotime($guru->tgl_lahir))}}</td>
-                                        </tr>
-                                        <tr>
-                                            <td style="vertical-align: text-top"><strong>Jenis Kelamin</strong></td>
-                                            <td style="vertical-align: text-top">:</td>
-                                            <td style="padding-left:10px">{{$guru->jk==1? "Laki-laki": "Perempuan"}}</td>
-                                        </tr>
-                                        <tr>
-                                            <td style="vertical-align: text-top"><strong>Jabatan/Tugas</strong></td>
-                                            <td style="vertical-align: text-top">:</td>
-                                            <td style="padding-left:10px">{{$guru->jabatan}}</td>
-                                        </tr>
-                                    </table>
-                               --}}
+                               
                               </div>
                             </div>
                           </div>
@@ -147,7 +119,7 @@
                    <div class="mu-single-sidebar text-center">
                      <h3>Kepala Sekolah</h3>
                      <div class="mu-sidebar-popular-courses text-center">
-                        <img src="{{url(Storage::url($kepsek->foto))}}" width="100%" alt="Foto Kepala Sekolah" style="margin-bottom:10px">
+                        <img src="{{url(Storage::url($kepsek->foto))}}" width="100%" alt="Foto Kepala Sekolah" class="img-thumbnail" style="margin-bottom:10px">
                         
                         <p style="margin-bottom:-5px"><strong>{{$kepsek->nama}}</strong></p>
                         <small  >NIP:  {{$kepsek->nip}} </small>

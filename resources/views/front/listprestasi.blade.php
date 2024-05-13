@@ -49,7 +49,7 @@
                             <div class="mu-blog-meta">
                               <small>
                                  
-                                  <span class="text-success " style="margin-right:15px"><i class="fa fa-calendar " style="margin-right:5px"> </i>{{ date('d F Y', strtotime($prestasi->tgl_publis))}}</span>
+                                  <span class="text-success " style="margin-right:15px"><i class="fa fa-calendar " style="margin-right:5px"> </i>{{ date('d F Y', strtotime($prestasi->created_at))}}</span>
                                   <span  class="text-warning " style="margin-right:15px"><i class="fa fa-eye" style="margin-right:5px"></i>{{$prestasi->view}}</span>
                                 </small>
                             </div>

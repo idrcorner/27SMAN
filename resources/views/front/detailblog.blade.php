@@ -97,7 +97,7 @@
                     <h3> Video Terbaru</h3>
                    @foreach ($videos as $video)
                    <iframe width="240" height="150" src="https://www.youtube.com/embed/{{$video->deskripsi}}" title=" {{$video->judul}}" frameborder="0" ></iframe>
-                   <strong class="text-center"> {{$video->judul}}</strong>
+                   <a href="{{route('detailvideo',$video->slug)}}">   <strong class="text-center"> {{$video->judul}}</strong></a>
                     <hr>
                    @endforeach
                   </div>
@@ -152,8 +152,8 @@
                   <div class="col-md-12">
                     <div class="mu-related-item">
                       <h3>Baca Juga:</h3>
-                      <div class="mu-related-item-area">
-                        <div id="mu-related-item-slide">
+                      <div class="mu-relategd-item-area">
+                        <div id="mu-relagted-item-slide">
                            @php
                                $a=0;
                            @endphp

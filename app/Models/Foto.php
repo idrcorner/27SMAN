@@ -16,4 +16,10 @@ class Foto extends Model
 
         return $album->judul;
     }
+    function slugalbum(){
+        $album=Album::find($this->album_id);
+        if(!$album) return "";
+
+        return $album->slug;
+    }
 }
